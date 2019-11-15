@@ -23,30 +23,47 @@
       <span class="error" style="color: red">{{$errors->first('email')}}</span>
     </div>
 
+    <div class="form-group">
+      <label for="division_id">Division</label>
+        <select class="form-control" name="division_id" id="division_id">
+          <option value="">select</option>
+          @foreach ($divisions as $division)
+            <option value="{{ $division->id }}">{{ $division->name }}</option>
+          @endforeach
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="district_id">Disrict</label>
+
+        <select class="form-control" name="district_id" id="district-area">
+          <option value="">Select</option>
+          @foreach ($districts as $district)
+            <option value="{{ $district->id }}">{{ $district->name }}</option>
+          @endforeach
+        </select>
+
+    </div>
+
 
     <div class="form-group">
-    <div class=" container">
+
       <label for="">Password</label>
       <input type="password"class="form-control requiredField" value="{{old('password')}}" placeholder="Password" name="password" >
       <span class="error" style="color: red">{{$errors->first('password')}}</span>
-    </div>
-  </div>
-  <div class="form-group row">
-      <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-      <div class="col-md-6">
+  </div>
+  <div class="form-group ">
+      <label for="password-confirm">confirm Password</label>
+
+
           <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-      </div>
+
   </div>
 
   <div class="form-group">
-    <div class=" container">
-      <div class="col-md-4"></div>
       <label for="validationServer013">Upload Image</label>
         <input type="file" class="form-control" name="user_image[]" required id="image" multiple >
       <span class="error" style="color: red">{{$errors->first('image')}}</span>
-      </div>
-    </div>
   </div>
 
   <div class="form-group">

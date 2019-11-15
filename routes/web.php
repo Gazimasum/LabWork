@@ -27,9 +27,7 @@ Route::get('/admin', function () {
     return view('backend.pages.index');
 })->name('admin');
 
-Route::get('/registration', function () {
-    return view('backend.pages.register');
-})->name('register');
+Route::get('/registration', 'Backend\PagesController@index')->name('register');
 
 Route::get('/table','Backend\TableController@table')->name('table');
 Route::get('/user_table','Backend\TableController@user_table')->name('user_table');
@@ -45,3 +43,8 @@ Route::get('export', 'Backend\ExcelController@export')->name('export');
 
 Route::get('/add-student', 'Backend\StudentController@addStudent')->name('add-student');
 Route::post('import', 'Backend\StudentController@import')->name('import');
+
+
+Route::get('get-districts/{id}', function($id){
+  return json_encode(App\District::where('division_id', $id)->get());
+});

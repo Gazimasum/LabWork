@@ -16,3 +16,25 @@
   <!-- Demo scripts for this page-->
   <script src="{!! asset('backend/js/demo/datatables-demo.js') !!}"></script>
   <script src="{!!asset('backend/js/demo/chart-area-demo.js') !!}"></script>
+  <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+    <script>
+
+      $("#division_id").change(function(){
+          var division = $("#division_id").val();
+          // Send an ajax request to server with this division
+          $("#district-area").html("");
+          var option = "";
+          var url = "{{ url('/') }}";
+          $.get( url+"/get-districts/"+division, function( data ) {
+
+              data = JSON.parse(data);
+              data.forEach( function(element) {
+                option += "<option value='"+ element.id +"'>"+ element.name +"</option>";
+              });
+
+            $("#district-area").html(option);
+
+          });
+      })
+
+    </script>
