@@ -44,6 +44,9 @@ Route::get('export', 'Backend\ExcelController@export')->name('export');
 Route::get('/add-student', 'Backend\StudentController@addStudent')->name('add-student');
 Route::post('import', 'Backend\StudentController@import')->name('import');
 
+Route::get('/sendemail', 'Backend\SendEmailController@index')->name('sendemailview');
+Route::post('/sendemail/send', 'Backend\SendEmailController@send')->name('sendemail');
+
 
 Route::get('get-districts/{id}', function($id){
   return json_encode(App\District::where('division_id', $id)->get());

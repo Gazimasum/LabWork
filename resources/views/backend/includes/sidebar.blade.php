@@ -41,4 +41,14 @@
           <i class="fas fa-fw fa-table"></i>
           <span>Add Student</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route('sendemailview')}}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Send Email</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="https://sohozjibon.com/api/products/details">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Api</span></a>
+      </li>
     </ul>
